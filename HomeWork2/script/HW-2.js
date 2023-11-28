@@ -208,4 +208,8 @@ for (let i = 0; i < coursesAndDurationArray.length; i++) {
     }
 }
 
-alert("Гарного вечора")
+// alert("Гарного вечора")
+Author = [{
+    name:'Usachev',
+    age: 55
+}]
