@@ -2,14 +2,7 @@
 //1. створити функцію яка обчислює та повертає площу прямокутника зі сторонами а і б
 let rect = (a,b) => a*b;
 console.log('area of a rectangle:'+ rect(3,4));
-// function calc(a,b) {
-//     return a + b;
-// }
-// let calc = (a, b) => /*return*/ a + b;
-// console.log(calc(10, 20));
-//
-// let asd = () => console.log(arguments);
-// console.log(asd('ASD'));
+
 // 2.створити функцію яка обчислює та повертає площу кола з радіусом r
 let circle = (pi, r, h) => 2 * pi * r * r;
 console.log('area of a circle:'+ circle(3.14,4).toFixed(0));
@@ -28,13 +21,9 @@ output([1, 1, 2, 3, 5, 8, 13, 21]);
 // робила через createElement так як це є в робочому коді в цій же папці до уроку,як я розумію ми вже це повинні знати
 function text (msg) {
     document.write(`<p>${msg}</p>`)
-    // let p = document.createElement('p');
-    // p.innerText = msg;
-    // document.body.append(p);
 }
 text ("Hello. My name is Olena.");
 //6. створити функцію яка створює ul з трьома елементами li. Текст li задати через аргумент всім однаковий
-// не знаю як по іншому включити теги html за допомогою js, як createElement та document.body.append
 let textUl = (liText) => {
     document.write(`
         <ul>
