@@ -54,7 +54,7 @@ let clients = [client1, client2, client3, client4, client5, client6, client7, cl
 console.log(clients);
 // - Взяти масив (Client [] з попереднього завдання).Відсортувати його по кількості товарів в полі order по зростанню. (sort)
 // let sortClient = clients.sort( (a, b) => a.order.length > b.order.length ? 1 : -1);
-let sortClient = clients.sort( client => client.order.length);
+let sortClient = clients.sort( (c1, c2)  => c1.order.length - c2.order.length);
 // function byField(fieldName){
 //     return (a, b) => a[fieldName] > b[fieldName] ? 1 : -1;
 // }
@@ -124,27 +124,28 @@ class Car {
         this.producer = producer;
         this.year = year;
         this.maxSpeed = maxSpeed;
-        this.engineCapacity = engineCapacity
-    }
-    drive() {
-        console.log(`Їдемо зі швидкістю ${this.maxSpeed} m на годину`);
-    };
-    info() {
-        console.log(`
+        this.engineCapacity = engineCapacity;
+        this.drive = function () {
+            console.log(`Їдемо зі швидкістю ${this.maxSpeed} m на годину`);
+        };
+            this.info = function () {
+            console.log(`
         model: - ${this.model}, 
         producer: - ${this.producer}, 
         year: - ${this.year},
         maxSpeed: - ${this.maxSpeed},
-        engineCapacity: - ${this.engineCapacity}`);
-    };
-    increaseMaxSpeed (newSpeed) {
-        return this.maxSpeed = this.maxSpeed+newSpeed;
-    };
-    changeYear (newValue) {
-        return this.year = newValue;
-    };
-    addDriver (driver) {
-        return driver = {}
+        engineCapacity: - ${this.engineCapacity},
+        driver: - ${JSON.stringify(this.driver?.name )} ${JSON.stringify(this.driver?.surname )}`);
+        };
+        this.increaseMaxSpeed = function (newSpeed) {
+            return this.maxSpeed = this.maxSpeed+newSpeed;
+        };
+        this.changeYear = function (newValue) {
+            return this.year = newValue;
+        };
+        this.addDriver = function (driver) {
+            return this.driver = driver;
+        }
     }
 }
  let car2 = new Car ('tesla', 'USA', 2017, 200, 2);
@@ -156,6 +157,7 @@ car2.info();
 console.log(car2.changeYear(2021));
 car2.info();
 console.log(car2.addDriver({name: 'Olena', surname: 'Stratelyuk'}));
+car2.info();
 
 // -створити класс/функцію конструктор попелюшка з полями ім'я, вік, розмір ноги. Створити масив з 10 попелюшок.
 
