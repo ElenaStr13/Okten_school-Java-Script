@@ -208,19 +208,19 @@ let coursesArray = [
     }
 ];
 // -написати пошук всіх об'єктів, в який в modules є sass
-// тут я пробувала перебирати map  масив coursesArray потім провалювалась в кожний об'єкт в ключ modules фільтрувала, знаходила, робила  includes
-// заплуталась через вкладенність масив-об'єкт-масив-значення = вивести об'єкт через значення в масиві його ключа
+console.log(coursesArray.filter((item) => item.modules.includes('sass')));
 // let findCourseCss = coursesArray.filter(el => el.modules.includes(item => item === 'sass') )
 // console.log (findCourseCss);
-let courses = coursesArray.reduce((accumulator, course) => {
-    if (course.modules.includes('sass' ) ) {
-        accumulator.push(course);
-    }
-    // else if (course.modules === "docker") {
-    //     accumulator.docker.push(course);
-    // }
-    return accumulator;
-}, [] );
-console.log (courses);
+// let courses = coursesArray.reduce((accumulator, course) => {
+//     if (course.modules.includes('sass' ) ) {
+//         accumulator.push(course);
+//     }
+//     // else if (course.modules === "docker") {
+//     //     accumulator.docker.push(course);
+//     // }
+//     return accumulator;
+// }, [] );
+// console.log (courses);
 //console.log (courses.map(el => el.modules.includes('sass')));
 // -написати пошук всіх об'єктів, в який в modules є docker
+console.log(coursesArray.filter((item) => item.modules.includes('docker')));
