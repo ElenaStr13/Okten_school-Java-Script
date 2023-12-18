@@ -90,7 +90,7 @@ let car1 = {
         engineCapacity: - ${this.engineCapacity}`);
     },
     increaseMaxSpeed (newSpeed) {
-         return this.maxSpeed = this.maxSpeed+newSpeed;
+        return this.maxSpeed = this.maxSpeed+newSpeed;
     },
     changeYear (newValue) {
         return this.year = newValue;
@@ -128,7 +128,7 @@ class Car {
         this.drive = function () {
             console.log(`Їдемо зі швидкістю ${this.maxSpeed} m на годину`);
         };
-            this.info = function () {
+        this.info = function () {
             console.log(`
         model: - ${this.model}, 
         producer: - ${this.producer}, 
@@ -148,9 +148,9 @@ class Car {
         }
     }
 }
- let car2 = new Car ('tesla', 'USA', 2017, 200, 2);
- console.log(car2);
- car2.drive();
+let car2 = new Car ('tesla', 'USA', 2017, 200, 2);
+console.log(car2);
+car2.drive();
 car2.info();
 console.log(car2.increaseMaxSpeed(100));
 car2.info();
