@@ -1,0 +1,20 @@
+#btnShow {
+    padding: 2px;
+}
+.number {
+    font-size: 20px;
+}
+
+.row {
+    outline: 2px solid #28c0ef;
+    height: 50px;
+    margin-bottom: 1px;
+    display: flex;
+    justify-content: space-around;
+}
+
+section {
+    border: 2px dotted #dcda29;
+    width: 100%;
+    text-align: center;
+}
