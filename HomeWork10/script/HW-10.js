@@ -1,4 +1,4 @@
-//Стоврити форму з трьома полями для name,sruname,age та кнопкою. При натисканні на кнопку зчитати
+//1. Стоврити форму з трьома полями для name,sruname,age та кнопкою. При натисканні на кнопку зчитати
 // данні з полів, та вивести об'єкт в документ. Іншими словами : заповниои форму, натиснули кнопку,
 // під формою з'явився блок з вашим об'єктом
 let form = document.forms[0];
@@ -21,7 +21,7 @@ btnshow.addEventListener('click', function (e) {
     }
 });
 
-//є сторінка, на якій є блок, у якому знаходиться цифра. написати код, який при кожному перезавантажені сторінки
+//2. є сторінка, на якій є блок, у якому знаходиться цифра. написати код, який при кожному перезавантажені сторінки
 // буде додавати до неї +1
 
 
@@ -37,20 +37,25 @@ document.querySelector(".number").innerHTML = n;
 //    counter.innerText = +(counter.innerText) + 1;
 // };
 
-//Є сторінка index.html (назва довільна), при відвідуванні якої в локальне сховще, в масив sessions зберігається
+//3. Є сторінка index.html (назва довільна), при відвідуванні якої в локальне сховще, в масив sessions зберігається
 // інформація про дату та час відвідування сторінки. Є ще сторінка sessions.html (назва довільна), при відвідуванні
 // якої потрібно відмалювати всю інформацію про відвідування сторінки index.html. Інфу НЕ виводити в консоль, а
 // побудувати дом структуру під кожну сессію
+const sessions = localStorage.getItem('sessions');
+const data = sessions ? JSON.parse(sessions) : [];
 
+data.push({ date: new Date() });
+
+localStorage.setItem('sessions', JSON.stringify(data));
 // запускає оновлення, створені в тому самому сховищі з інших документів
 // window.onstorage = event => { // також можна використовувати window.addEventListener('storage', event => {
-//     if (event.key != 'now') return;
-//     alert(event.key + ':' + event.newValue + " в " + event.url);
-// };
-//
-// localStorage.setItem('now', Date.now());
+for (const item of data) {
+    const block = document.createElement('div');
+    block.innerText = item.date;
+    document.body.appendChild(block);
+}
 
-//зробити масив на 100 об'єктів та дві кнопки prev next при завантажені сторінки з'являються перші 10 об'єктів.
+//4. зробити масив на 100 об'єктів та дві кнопки prev next при завантажені сторінки з'являються перші 10 об'єктів.
 //При натисканні next виводяться настпні 10 об'єктів при натисканні prev виводяться попередні 10 об'єктів
 let b= document.querySelector(".number");
 let divAnother = document.createElement("div");
@@ -66,18 +71,18 @@ let arrNumber =
     70, 71, 72, 73, 74, 75, 76, 77, 78, 79,
     80, 81, 82, 83, 84, 85, 86, 87, 88, 89,
     90, 91, 92, 93, 94, 95, 96, 97, 98, 99,
-    100,];
-window.onload = function () {
-    for (let i = 0; i < 10 ; i++) {
-        let span = document.createElement('span');
-        span.innerHTML = arrNumber[i];
-        divAnother.append(span);
-    }
-};
-document.querySelector('#prev').onclick = function() {
-
-}
-document.querySelector('#next').onclick = function() {
+    100];
+// window.onload = function () {
+//     for (let i = 0; i < 10 ; i++) {
+//         let span = document.createElement('span');
+//         span.innerHTML = arrNumber[i];
+//         divAnother.append(span);
+//     }
+// };
+// document.querySelector('#prev').onclick = function() {
+//
+// }
+// document.querySelector('#next').onclick = function() {
     // arrNumber.map(el => {
     //     for (let i = 0; i < 20; i++) {
     //         let span = document.createElement('span');
@@ -85,16 +90,58 @@ document.querySelector('#next').onclick = function() {
     //         divAnother.append(span);
     //     }
     // })
-}
+//}
+// const prev = document.getElementById('prev');
+// const next = document.getElementById('next');
+// let page = 1;
+// const limit = 10;
 
-//Створити довільний елемент з id = text та створити кнопку.Використовуючи JavaScript, зробіть так, щоб при
+// const handler = (page, limit) => {
+//     const wrapper = document.getElementById('wrapper');
+//
+//     const startIndex = (page - 1) * limit;
+//     let endIndex = page * limit;
+//
+//     if (startIndex > 0) {
+//         prev.removeAttribute('disabled');
+//     } else {
+//         prev.setAttribute('disabled','disabled');
+//     }
+//     if (endIndex < arrNumber.length) {
+//         next.removeAttribute('disabled');
+//     } else {
+//         next.setAttribute('disabled','disabled');
+//         endIndex = arrNumber.length;
+//     }
+//
+//     const state = [];
+//     for (let i = startIndex; i < endIndex; i++) {
+//         const obj = arrNumber[i];
+//
+//         const item = document.createElement('div');
+//         const title = document.createElement('div');
+//
+//         title.innerText = obj;
+//
+//         item.classList.add('item', 'wrapper');
+//
+//         item.append(title);
+//         state.push(item);
+//     }
+//     wrapper.replaceChildren(...state);
+// }
+//
+// handler(page, limit);
+// prev.addEventListener('click', () => handler(page -= 1, limit));
+// next.addEventListener('click', () => handler(page += 1, limit));
+//5 Створити довільний елемент з id = text та створити кнопку.Використовуючи JavaScript, зробіть так, щоб при
 // натисканні на кнопку зникав елемент з id="text".
 
 document.querySelector('.hidden').onclick = function() {
     document.getElementById('text').hidden = true;
 }
 
-//створити інпут який приймає вік людини та кнопку яка підтверджує дію.При натисканні на кнопку зчитати інформацію
+//6 створити інпут який приймає вік людини та кнопку яка підтверджує дію.При натисканні на кнопку зчитати інформацію
 // з інпуту та перевірити вік чи меньше він ніж 18, та повідомити про це користувача
 let btnCheck = document.querySelector('.check');
 btnCheck.addEventListener('click', function (e) {
@@ -136,3 +183,17 @@ function draw() {
 //при перезавантаженні сторінки до значаення додається по 10грн, але !!!
 //зміна ціни відбувається тільки на перезавантаження, які відбулись пізніше ніж 10 секунд після попереднього.
 //При перезавантаженні, яке відбулось раніше ніж минуло 10 секунд - нічого не відбувається
+
+const block = document.getElementById('count');
+
+const currentDate =  new Date().getTime();
+const date = Number(localStorage.getItem('lastRefresh')) || currentDate;
+let count  =  Number(localStorage.getItem('count')) || 100;
+
+if  (currentDate - date > 1000) {
+    count += 10;
+    localStorage.setItem('count', count);
+}
+
+localStorage.setItem('lastRefresh', currentDate.toString());
+block.innerText = `${count}грн`;

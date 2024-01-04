@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+</head>
+<body>
+<h1></h1>
+<p></p>
+<ul>
+</ul>
+<script>
+    //при кліку на посилання перехід на відповідну сторінку, на якій буде вся інформація
+    // про користувача (всі 15 полів) отримана через додатковий запит
+
+     let url = new URL(location.href);
+     let queryParamXXX = url.searchParams.get('xxx');
+     //console.log(queryParamXXX);
+     let user = JSON.parse(queryParamXXX);
+    console.log(user);
+     let h1 = document.getElementsByTagName('h1')[0];
+     h1.innerText = user.name + " " + user.username;
+     let p = document.getElementsByTagName('p')[0];
+     p.innerText = 'id:' + user.id;
+     let ul = document.getElementsByTagName('ul')[0];
+     let phone = document.createElement("li");
+     phone.innerText = 'Phone: ' + user.phone;
+     ul.appendChild(phone);
+    let web = document.createElement("li");
+    web.innerText = 'Website: ' + user.website;
+    ul.appendChild(web);
+    let adres = document.createElement("li");
+    adres.innerText = 'Adres: ' + 'City - ' + user.address.city + '; street - '+ user.address.street + '; ' + user.address.suite + '; zipcode: '+ user.address.zipcode;
+    ul.appendChild(adres);
+    let email = document.createElement("li");
+    email.innerText = 'email: ' + user.email;
+    ul.appendChild(email);
+    let company = document.createElement("li");
+    company.innerText = 'company: ' + user.company.bs + '; catchPhrase: ' + user.company.catchPhrase + '; name - ' + user.company.name;
+    ul.appendChild(company);
+</script>
+</body>
+</html>

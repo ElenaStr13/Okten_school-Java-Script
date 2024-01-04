@@ -18,3 +18,12 @@ section {
     width: 100%;
     text-align: center;
 }
+.wrapper {
+    width: 450px;
+    padding: 10px;
+}
+
+.item {
+    margin-top: 10px;
+    border: 2px red solid;
+}
