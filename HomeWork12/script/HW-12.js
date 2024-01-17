@@ -1,6 +1,6 @@
-//зробити файл HW-12.html
+//зробити файл index.html
 //з ендпоінту http://jsonplaceholder.typicode.com/users отримати всіх користувачів
-//вивести їх id + name списком та додати посилання з href = user-details.html?id=XXX
+//вивести їх id + name списком та додати посилання з href = post-details.html?id=XXX
 // (замість ХХХ - айді юзера)
 
 
